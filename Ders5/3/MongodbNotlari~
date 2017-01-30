@@ -1,0 +1,54 @@
+
+# packe.json her nodejs projesinin genellikle ana klasöründe yer alır... npm ile yüklemeler yapılacağı zaman burası okunur...
+# npm çalıştığında gerekli modülleri node_modules klasörüne indirir...
+
+-------------------Mongodb kurulumu-----------------------
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo service mongod start
+nano /var/log/mongodb/mongod.log
+
+--------------veritabanına bağlanıp işlemler yapmak için-----------------------
+ 1995  mongo   #metin tabanlı mongo istemci
+show dbs
+use examlpeDb
+show collections  # test adında bir collection (tablo) mevcut
+db.test.find() # tüm kayıtları listeler
+j = { name : "mongo" }
+db.test.insert( j )
+
+var c = db.test.find()
+while ( c.hasNext() ) printjson( c.next() )
+
+var c = db.test.find()
+printjson( c [ 4 ] )
+
+
+db.test.find( { x : 18 } )
+
+
+--------------veritabanına GUI ile bağlanıp işlemler yapmak için-----------------------
+
+php&ruby için geliştirilen bir gui uygulaması (tek dosya)
+sudo apt-get install php5-mongo
+http://genghisapp.com/ -> download -> indirilen php dosyaını web klasörüne ekledikten sonra tarayıcıdan çalıştırmak yeterli...
+/var/www/html/genghis.php
+
+
+
+
+ 1991  sudo npm install mongodb #package.json da belirtilirse bu satır yerine sudo npm install demek yeterlidir.
+##### 1994  export PATH="/home/wsan/Programs/mongodb-linux-x86_64-2.6.7/bin":$PATH 
+ 1995  mongo
+ 020  cd ..../LectureExamples/
+ 2021  cd Lecture6
+  2025  cd 3
+ 2026  nodejs mongo3.js 
+ 2027  npm install should
+ 2028  nodejs mongo3.js 
+ 2029  npm install monk
+ 2030  nodejs mongo3.js 
+

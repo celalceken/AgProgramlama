@@ -1,0 +1,11 @@
+{
+  "name": "PacketCapturing",
+  "version": "0.0.1",
+  "description": "my first Packet Capturing app",
+  "dependencies":
+  {
+    "express": " ",
+    "pcap": " ",
+    "minimist":" "
+  }
+}

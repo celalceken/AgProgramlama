@@ -1,0 +1,20 @@
+{
+  "name": "SoketExample",
+  "version": "0.0.1",
+  "description": "first socket.io application",
+  "dependencies":
+  {
+    "express": "~4.10.2",
+    "socket.io": "1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NetworkProgrammingCourse/LectureExamples.git"
+  },
+  "author": "Celal Çeken",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NetworkProgrammingCourse/LectureExamples.git/issues"
+  }
+}
+

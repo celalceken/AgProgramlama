@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-push-notification-server",
+  "version": "1.0.1",
+  "description": "This is a simple example using nodejs to build a push notification server.",
+  "main": "server.js",
+  "dependencies": {
+    "socket.io": "",
+    "xml2json": ""
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/GianlucaGuarini/nodejs-push-notification-server.git"
+  },
+  "author": "Gianluca Guarini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GianlucaGuarini/nodejs-push-notification-server/issues"
+  }
+}

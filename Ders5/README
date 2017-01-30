@@ -1,0 +1,23 @@
+ 
+----------------------Installation--------------------------------------
+
+1787  sudo apt-get install nodejs
+ 1788  nodejs ....../Uygulamalar/NodeJS1/ilkUygulama.js 
+
+    nodejs ....../Uygulamalar/NodeJS1/ilkUygulama.js
+
+
+sudo apt-get install nodejs-legacy # debian sistemler için gerekli...
+
+
+----------------------Packet Manager----------------------------------------
+
+1792  sudo apt-get install npm
+ 1793  npm install express socket.io
+
+ 1861  npm install --save express@4.10.2
+ 
+npm install # packet.json içerisindeki dependency ile belirtilen paketler otamatik olarak node_modules içerisine kuruluyor...
+
+
+

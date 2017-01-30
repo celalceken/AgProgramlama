@@ -1,0 +1,6 @@
+#You’re going to connect to the daytime server at the
+#National Institute for Standards and Technology (NIST) and ask it for the current time.
+
+telnet time.nist.gov 13
+nc time.nist.gov 13
+

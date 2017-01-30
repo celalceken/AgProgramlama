@@ -1,0 +1,68 @@
+----------Sanallastirma ortaminin hazirlanmasi----------------
+vmware, virtual box
+Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1)
+
+
+------------Ağ arayüzlerinin ayarlarını görme/değiştirme ... ---------------
+ifconfig
+ifconfig eth0 192.168.2.11
+sudo ifconfig eth0 down
+sudo ifconfig eth0 up
+sudo dhclient eth0     # eth0 arayüzü için DHCP den yeni IP isteniyor
+
+--------ping komutu-----------
+ping 192.168.2.56
+ping 192.168.2.56 -c 3  #sadece 3 paket gönder
+ping 192.168.2.56 -f #dos saldırısı
+
+# 1. web sunucuya misafir makinadan bağlantı yapılması
+# 2. tcpdump ile bu bağlantıya ait akışın görüntülenmesi
+# 3. Dos saldırısının görüntülemesi
+
+-----------tcpdump-paket yakalama---------------
+sudo tcpdump -i vmnet8
+sudo tcpdump -i vmnet8 port 80
+sudo tcpdump -i eth0 dst 173.194116.162
+sudo tcpdump  '(icmp or udp)' -i vmnet8 # sadece icmp paketlerini gösterir
+
+-----------uzak bağlantı-------------
+
+nc -l 8001 # sunucu (192.168.1.1)
+nc 192.168.1.1 8001 #istemci
+
+nc -l 8001 > Hedef.txt # dosya transferi
+nc 192.168.1.1 8001 <Kaynak.txt
+
+ssh wsan@102.168.1.12  # secure shell
+
+# nmap ile http, ssh ve nc portlarının taranması
+
+----------port tarama-------------
+nmap sakarya.edu.tr
+nmap 192.168.96.1
+
+nmap 192.168.96.1 -F #fast scan... ip adresi , işletim sistemi v.s. taranmaz... sadece port açık/kapalı
+
+nmap 192.168.96.1 -p 22 # belirli portu tarama
+
+-sT # sadece TCP
+-sU # sadece UDP
+-sV # portlardaki uygulamaların version bilgiside listelensin
+
+nmap 192.168.96.0/24 #Ağdaki tum bilgisayarları tarar.
+
+
+-----------hedef sisteme hagi yollardan gidildiğinin bulunması-----------------
+traceroute google.com
+
+
+----------soket bağlantılarını listeleme--------
+cat /etc/services
+netstat
+netstat -n #adreslerin IP değerini gösterir-daha hızlı
+netstat -p #process id değeri de gösterilir
+netstat -nt #tcp |grep ESTA
+netstat -nu #udp
+netstat -i # istatistikleri incelemek için (ping -f ile yapılan istek sayısı gözlenebilir...) 
+
+#1. web sunucuyla olan bağlantının görüntülenmesi (misafir makinadan nc ile bağlantı) 

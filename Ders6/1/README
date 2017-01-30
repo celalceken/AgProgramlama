@@ -1,0 +1,9 @@
+
+# testing using a Rest Client (PHP Storm, curl, Postman (chrome))
+
+
+https://maps.googleapis.com/maps/api/geocode/json?address=Turkey&sensor=false
+
+https://maps.googleapis.com/maps/api/geocode/json?latlng=40.742447,30.325603&sensor=false
+
+curl --request GET https://maps.googleapis.com/maps/api/geocode/json?latlng=40.742447,30.325603&sensor=false

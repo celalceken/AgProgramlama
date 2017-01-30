@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <link rel="stylesheet" href="GeneralCSS.css">
+
+    <style>
+
+
+
+        header {
+            background-color:black;
+            color:white;
+            text-align:center;
+            padding:5px;
+        }
+
+
+        nav {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:300px;
+            width:100px;
+            float:left;
+            padding:5px;
+        }
+        section {
+            width:350px;
+            float:left;
+            padding:10px;
+        }
+        footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:5px;
+        }
+        #duyuru{
+
+            width: 200px;
+
+            padding: 4px;
+
+            position:absolute;
+
+            top:120px;
+
+            left:600px;
+
+            overflow:auto;
+
+
+
+            background-color: #F0F0F0;
+
+            color: #101030;
+
+            border: 1px solid #e5e5f9;
+
+            text-align: left;
+
+            height: 150px;
+
+        }
+
+
+    </style>
+
+
+
+        </head>
+<body>
+
+<header>
+    <h2>City Gallery</h2>
+</header>
+
+<nav>
+    <a href="istanbul.html">London </a> <br>
+    <a href="Paris.html">Paris </a> <br>
+    <a href="Tokyo.html">Tokyo </a> <br>
+    <a href="YourCity.html">YourCity </a> <br>
+</nav>
+
+<section>
+    <h1>Istanbul</h1>
+
+</section>
+
+<div id="duyuru">Duyurular<hr><div id="duyurular"></div></div>
+<script src="socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script>
+    // creating a new websocket
+    var socket = io.connect('http://localhost:8080');
+    // on every message recived we print the new datas inside the #container div
+    socket.on('notification', function (data) {
+        //alert (data);
+        // convert the json string into a valid javascript object
+        var _data = JSON.parse(data);
+       // alert (_data);
+
+       // $('#duyurular').append(new Date());
+        $('#duyurular').empty();
+        $('#duyurular').append(_data.Duyurular.duyuru.duyuruNo);
+        $('#duyurular').append(_data.Duyurular.duyuru.duyuruAyrinti);
+
+    });
+</script>
+
+
+
+<footer>
+    Copyright © W3Schools.com
+</footer>
+
+
+
+</body>
+</html>
