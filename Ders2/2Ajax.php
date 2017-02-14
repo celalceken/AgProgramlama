@@ -10,8 +10,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 <head>
     <title>index1</title>
     <meta content="text/html" charset="utf-8"/>
-    <link rel="stylesheet"  type="text/css" href="../CSS/Main.css" />
-    <script src="../JS/jquery-1.9.1.js"></script>
+    <link rel="stylesheet"  type="text/css" href="CSS/Main.css" />
+    <script src="JS/jquery-1.9.1.js"></script>
 
     <script>
         $(document).ready(function()
@@ -109,7 +109,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 
     <form action="" id="form1">
-        Numaraaaa:
+        Numara:
         <input type="text" id="ogrenciID" name="ogrenciID"/><br /><h5 id="mesaj" style="display: none"> </h5>
 
         Adı: <input type="text" id="adi" name="adi"/><br />

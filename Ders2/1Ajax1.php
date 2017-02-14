@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Configuration/DatabaseConnection1.php";
+require_once "Configuration/DatabaseConnection1.php";
 
 $result = pg_query($baglantiNo, "SELECT * FROM \"Ogrenci\"");
 

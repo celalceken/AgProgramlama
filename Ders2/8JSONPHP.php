@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
 
     <title>index1</title>
-    <link rel="stylesheet"  type="text/css" href="../CSS/Main.css" />
-    <script src="../JS/jquery-1.9.1.js"></script>
+    <link rel="stylesheet"  type="text/css" href="CSS/Main.css" />
+    <script src="JS/jquery-1.9.1.js"></script>
     <script>
         $(document).ready(function()
         {

@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Configuration/DatabaseConnection1.php";
+require_once "Configuration/DatabaseConnection1.php";
 
 $sql="SELECT * FROM \"Ogrenci\" where \"adi\" Like '".$_POST['adi']."%'";
 
