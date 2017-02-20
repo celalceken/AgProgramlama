@@ -2,10 +2,10 @@ import java.io.*;
 import java.net.*;
 
 
-public class IkiClient
+public class BirClient
 {
 	public static final String sERVER = "localhost";
-	public static final int pORT = 8080;
+	public static final int pORT = 80;
 	public static final int tIMEOUT = 2000;
 	
 	public static void main(String[] args) throws IOException {
@@ -36,7 +36,7 @@ public class IkiClient
 		
 		
 		
-		out.println("GET /index4.html HTTP/1.1");   //out.println("GET /index2.html HTTP/1.1");
+		out.println("GET /index.html HTTP/1.1");   //out.println("GET /index2.html HTTP/1.1");
 		out.println("Host: localhost");   // out.println("Host: "+host);
 		out.println("");
 		out.flush();

@@ -14,15 +14,23 @@ public class UcServer {
 	
 	public static void main(String[] args) 
 	{
+		ServerSocket serverSocket = null;
+		PrintWriter out = null; // Character output , mesaj gondermek icin
+		
+		
 		try
-		{	ServerSocket server = new ServerSocket(pORT);
-			while (true) {
-				try (Socket connection = server.accept()) {
-					Writer out = new OutputStreamWriter(connection.getOutputStream());
+		{	serverSocket = new ServerSocket(pORT);
+			System.out.println("Sunucu baslatildi. Baglanti bekleniyor...");
+			while (true) 
+			{
+				try (Socket clientSocket = serverSocket.accept()) 
+				{
+					System.out.println(clientSocket.getInetAddress().getHostName() + " : " + clientSocket.getPort()+ " baglandi.");
+					out = new PrintWriter(clientSocket.getOutputStream(), true);
 					Date now = new Date();
 					out.write(now.toString() +"\r\n");
 					out.flush();
-					connection.close();
+					clientSocket.close();
 				} catch (IOException e) 
 				{
 					System.err.println(e.getMessage());
