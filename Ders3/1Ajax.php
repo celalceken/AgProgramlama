@@ -12,19 +12,15 @@
 		<link rel="stylesheet"  type="text/css" href="CSS/Main.css" />
 		<script>
 			function listele()
-			{	//alert("aaa");
+			{
 				if (window.XMLHttpRequest)
 				{
 					//  Firefox, Chrome, Opera, IE7+,  Safari v.s.
-					xmlhttp = new XMLHttpRequest();
+					xmlhttp = new XMLHttpRequest(); // readystate:0
 					//Ajax engine oluşturuluyor... sunucuyla olan tüm iletişim bu nesne üzerinden
 					//asenkron olarak gerçekleştirilecek...
 				}
-				/*else
-				{
-					// IE6, IE5
-					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // readystate=0
-				}*/
+
 				xmlhttp.onreadystatechange = function() //istek durumunu tutan readystate her değiştişinde 
 				//bu fonksiyon tetikleniyor. readystate 0-4 arası değer alıyor. 4->istek sonucu 
 				//istemci tarafından alındı.
@@ -49,7 +45,7 @@
 	</head>
 
 	<body>
-		
+
 		<input style="" type="submit" ondblclick="listele()" id="gonder" value="Listele" onclick="listele();"/>
 
 		<div id="ortaForm" style="margin-left: 200px;height: 200px">
