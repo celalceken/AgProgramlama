@@ -8,7 +8,7 @@ import java.net.*;
 import java.io.*;
 import java.util.Date;
 
-public class UcServer {
+public class IkiSunucu {
 	
 	public final static int pORT = 8080;
 	

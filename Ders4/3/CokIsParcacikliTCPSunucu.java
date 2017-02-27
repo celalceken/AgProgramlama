@@ -16,7 +16,7 @@ import java.net.Socket;
  * @author wsan
  *
  */
-public class MultiThreadServer 
+public class CokIsParcacikliTCPSunucu 
 {
 	private static final int PORT = 8001;
 

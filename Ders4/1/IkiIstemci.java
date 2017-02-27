@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 
 
-public class UcClient
+public class IkiIstemci
 {
 	public static final String sERVER = "localhost";
 	public static final int pORT = 8080;
@@ -11,7 +11,6 @@ public class UcClient
 	public static void main(String[] args) throws IOException {
 
 		Socket socket = null;
-		PrintWriter out = null; // Character output , mesaj gondermek icin
 		BufferedReader in = null; // Character Input
 		
 		try {

@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 import java.net.Socket;
 
 
-public class Client {
+public class TCPIstemci {
 
 	public static void main(String[] args) throws IOException {
 
@@ -14,7 +14,7 @@ public class Client {
 		PrintWriter out = null;
 		BufferedReader in = null;
 		final String hOST = "localhost";
-		final int pORT=8080;
+		final int pORT=8001;
 		try {
 			socket = new Socket(hOST, pORT); // "localhost" ya da sunucu IP adresi
 			// input stream ve output stream olusuyor

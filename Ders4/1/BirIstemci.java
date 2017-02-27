@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 
 
-public class BirClient
+public class BirIstemci
 {
 	public static final String sERVER = "localhost";
 	public static final int pORT = 80;
@@ -36,7 +36,7 @@ public class BirClient
 		
 		
 		
-		out.println("GET /index.html HTTP/1.1");   //out.println("GET /index2.html HTTP/1.1");
+		out.println("GET /index1.html HTTP/1.1");   //out.println("GET /index2.html HTTP/1.1");
 		out.println("Host: localhost");   // out.println("Host: "+host);
 		out.println("");
 		out.flush();

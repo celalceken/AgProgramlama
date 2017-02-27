@@ -2,7 +2,7 @@ import java.net.*;
 import java.io.*;
 import java.util.Date;
 
-public class BirServer {
+public class TCPSunucu {
 	public static void main(String[] args) throws IOException {
 
 		ServerSocket serverSocket = null;

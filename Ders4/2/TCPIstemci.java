@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 
 
-public class BirClient
+public class TCPIstemci
 {
 	public static void main(String[] args) throws IOException {
 
