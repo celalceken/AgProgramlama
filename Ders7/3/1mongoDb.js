@@ -2,7 +2,7 @@ var should = require("should"); //  It keeps your test code clean, and your erro
 var monk = require("monk"); // a framework that makes accessing MongoDb really easy
 
 
-var db = monk('192.168.56.103/OgrenciBilgiSistemi');
+var db = monk('mongodb://wsan@192.168.56.103:27017/OgrenciBilgiSistemi');
 should.exists(db);
 var collection = db.get("ogrenciler");
 should.exists(collection);
