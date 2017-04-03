@@ -1,5 +1,5 @@
 
-var express = require('express');
+var express = require('express'); //Node.js web uygulama çatısı. Web uygulamaları geiştirmek için kullanılır.
 var app = express();
 var path = require('path');
 

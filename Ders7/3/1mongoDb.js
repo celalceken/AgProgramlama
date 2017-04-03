@@ -56,5 +56,22 @@ var yeniKayit= {
 
 collection.update({ogrenciNo: '00000000004'}, yeniKayit);
 
+/*collection.findAndModify(
+    {
+        query: {ogrenciNo: req.params.ogrenciNo},
+
+        update: { $set: {
+            adi: req.body.adi,
+            soyadi: req.body.soyadi
+        }
+        }
+    },
+    /!*{"new": true, "upsert": true},*!/
+    function (err, doc) {
+        if (err) throw err;
+        console.log(doc);
+    }
+);*/
+
 
 
