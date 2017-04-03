@@ -6,9 +6,12 @@
  * Time: 23:17
  */
 
+// SOAP modülü yüklenmeli sudo apt-get install php7.0-soap
+
+
 $options = array(
-    'uri' => 'http://localhostNetworkProgramming/Lecture6/2/',
-    'location' => 'http://localhost/NetworkProgramming/Lecture6/2/11SoapServerDatabase.php',
+    'uri' => 'http://localhost/AgProgramlama/Ders9/2/',
+    'location' => 'http://localhost/AgProgramlama/Ders9/2/11SoapServerDatabase.php',
 );
 $client = new SOAPClient(null, $options);
 echo $client->select($_GET['id']);

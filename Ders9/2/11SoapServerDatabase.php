@@ -6,6 +6,7 @@
  * Time: 23:14
  */
 
+// SOAP modülü yüklenmeli sudo apt-get install php7.0-soap
 
 // Soap and php 2014 (reference)
 // Kendi sistemlerimiz arasında haberleşme yapılacaksa WSDL kullanmaya gerek yok...

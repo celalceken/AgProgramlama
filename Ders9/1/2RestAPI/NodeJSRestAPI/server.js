@@ -1,5 +1,5 @@
-//Dependencies
-var express    = require('express');
+//Dependencies  - Modules required
+var express    = require('express'); // Node.js web application framework
 var monk = require("monk"); // MongoDB Driver
 var bodyParser = require('body-parser'); // get parameters from a request
 var morgan     = require('morgan'); // log requests to the console
@@ -8,7 +8,7 @@ var should = require("should"); //  try-catch mechanism
 // configurations
 
 var app = express();
-app.use(morgan('dev')); //express middleware
+app.use(morgan('dev')); //app.use()  gerekli olan middleware (fonksiyon) leri eklemek (aktif hale getirmek) için kullanılır
 app.use(bodyParser.urlencoded({ extended: true })); //express middleware - parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 
@@ -18,8 +18,10 @@ should.exists(db);
 var collection = db.get("ogrenciler");
 should.exists(collection);
 
-var router = express.Router(); //isteklerin proseslere hangi yoldan erişeceğini tanımlar
-// Tüm istekler için kök dizin
+var router = express.Router(); //initiate a new Express Router.
+// uygulamanın gelen isteklere nasıl yanıt vereceğini belirler. isteklerin nereye yönlendirileceğini tanımlar
+
+// Tüm istekler için kök dizin tanımlanır
 app.use('/RestAPI', router); // proseslere erişmek için istekler "sunucuSoketAdresi/RestAPI" ile başlayacak
                              // http://localhost:8080/RestAPI
 
@@ -33,7 +35,7 @@ console.log('Listening ' + port);
 
 // all requests are routed here firstly, then directed to the related route
 router.use(function(req, res, next) {
-	console.log('Web Servisine istek geldi...');
+	console.log('Web Servisine istek geldi');
 	next();
 });
 
@@ -95,17 +97,16 @@ router.route('/Ogrenciler/:ogrenciNo')
         collection.find({ogrenciNo:req.params.ogrenciNo},{ }, function (err, doc){
 			if (err)
 				res.send(err);
+			//console.log(doc);
 			res.json(doc);
 		});
 	})
 
-    // update  operation (ogrenciNo)
+    // update  operation (ogrenciNo)   req.params.ogrenciNo  - > RestAPI/Ogrenciler/6
 	.put(function(req, res) {
         console.log(req.body.adi + '' +req.body.soyadi+''+ req.params.ogrenciNo);
 
-
-        // collection.update({ogrenciNo:req.params.ogrenciNo}, { "adi": req.body.adi,  "soyadi": req.body.adi});
-
+        //Bulduğu ilk kaydı günceller
 
         collection.findAndModify(
             {
@@ -129,7 +130,7 @@ router.route('/Ogrenciler/:ogrenciNo')
 
 
 
-
+    //koşulu sağlayan tüm kayıtlar silinir
     // delete  operation (ogrenciNo)
 	.delete(function(req, res) {
         collection.remove({ogrenciNo:req.params.ogrenciNo}, function (err){

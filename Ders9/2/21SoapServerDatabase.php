@@ -33,13 +33,13 @@ class PagilaCustomers
 
 $server = new soap_server();
 
-$server->configureWSDL("PagilaCustomerService", "http://localhost/NetworkProgramming/Lecture6/2/PagilaCustomerService"); //configure WSDL
+$server->configureWSDL("PagilaCustomerService", "http://localhost/AgProgramlama/Ders9/2/PagilaCustomerService"); //configure WSDL
 
 $server->register("PagilaCustomers.find",
     array("type" => "xsd:int"),
     array("return" => "xsd:string"),
-    "http://localhost/NetworkProgramming/Lecture6/2/PagilaCustomerService", //namespace
-    "http://localhost/NetworkProgramming/Lecture6/2/PagilaCustomerService#find", //define soap action
+    "http://localhost/AgProgramlama/Ders9/2/PagilaCustomerService", //namespace
+    "http://localhost/AgProgramlama/Ders9/2/PagilaCustomerService#find", //define soap action
     "rpc",
     "encoded",
     "Return related customer information");
