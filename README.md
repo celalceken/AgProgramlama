@@ -1,1 +1,3 @@
 # Ağ Programlama Dersi Notları
+
+Notlar sürekli güncellenmektedir...
