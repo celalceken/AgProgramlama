@@ -1,17 +1,17 @@
 ----------Sanallastirma ortaminin hazirlanmasi----------------
-vmware, virtual box
-Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1)
+vmware, virtual box ...
+Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
 
 
-------------Ağ arayüzlerinin ayarlarını görme/değiştirme ... ---------------
+------------ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme ... ---------------
 ifconfig
 ifconfig eth0 192.168.2.11
 sudo ifconfig eth0 down
 sudo ifconfig eth0 up
 sudo dhclient eth0     # eth0 arayüzü için DHCP den yeni IP isteniyor
 
---------ping komutu-----------
-ping 192.168.2.56
+--------ping - Hedef sistemin erişilebilirliğinin denetimi -----------
+ping 192.168.2.56   # belirtilen cihaza echo isteği gönderilir ve gelen yanıta göre gecikme (RTT) yazdırılır. 
 ping 192.168.2.56 -c 3  #sadece 3 paket gönder
 ping 192.168.2.56 -f #dos saldırısı
 
@@ -19,48 +19,76 @@ ping 192.168.2.56 -f #dos saldırısı
 # 2. tcpdump ile bu bağlantıya ait akışın görüntülenmesi
 # 3. Dos saldırısının görüntülemesi
 
------------tcpdump-paket yakalama---------------
-sudo tcpdump -i vmnet8
-sudo tcpdump -i vmnet8 port 80
+-----------tcpdump - ağ arayüzündeki akışın görüntülenmesi---------------
+sudo tcpdump -i vboxnet0
+sudo tcpdump -i vboxnet0 port 80
 sudo tcpdump -i eth0 dst 173.194116.162
-sudo tcpdump  '(icmp or udp)' -i vmnet8 # sadece icmp paketlerini gösterir
+sudo tcpdump  '(icmp or udp)' -i vboxnet0 # sadece icmp ve udp paketlerini gösterir
+sudo tcpdump -nnXSs 0 'port 80' -i vboxnet0  # başlık ile birlikte verinin (payload) de yakalanması 
 
------------uzak bağlantı-------------
 
-nc -l 8001 # sunucu (192.168.1.1)
+-----------netcat - soket bağlantılarının testi-------------
+
+nc time.nist.gov 13
+
+#You’re going to connect to the daytime server at the
+#National Institute for Standards and Technology (NIST) and ask it for the current time.
+
+
+nc -l 8001 # sunucu (192.168.1.1) #  -u udp soketiçin kullanılır.
 nc 192.168.1.1 8001 #istemci
 
 nc -l 8001 > Hedef.txt # dosya transferi
 nc 192.168.1.1 8001 <Kaynak.txt
 
-ssh wsan@102.168.1.12  # secure shell
 
+nc -l -p 8000 # windows sunucu
+nc 172.16.0.138 8000
+
+ 
+nc -l 12345 > deneme1.txt
+nc 127.0.0.1 12345 < a.txt
+ 
+
+
+$> printf "GET / HTTP/1.0\r\n\r\n" | nc 192.168.56.101 80 # web sunucudan index.html dosyası istenir
+ 
+nc -zv localhost 20-30 #port tarama
+nc -zv localhost 20-80
+
+
+---------ssh - sistemlerin uzaktan yönetimi-----------
+
+
+ssh wsan@102.168.1.12  # secure shell
+ssh -X wsan@102.168.1.12 # istemciye ait grafik arayüzünün kullanılabilmesi
+
+
+----------nmap - port tarama-------------
 # nmap ile http, ssh ve nc portlarının taranması
 
-----------port tarama-------------
 nmap sakarya.edu.tr
 nmap 192.168.96.1
 
-nmap 192.168.96.1 -F #fast scan... ip adresi , işletim sistemi v.s. taranmaz... sadece port açık/kapalı
+nmap 192.168.96.1 -F #fast scan...  işletim sistemi v.s. taranmaz... sadece port açık/kapalı
 
 nmap 192.168.96.1 -p 22 # belirli portu tarama
 
 -sT # sadece TCP
 -sU # sadece UDP
--sV # portlardaki uygulamaların version bilgiside listelensin
+-sV # portlardaki uygulamaların uyarlama bilgiside listelensin
 
-nmap 192.168.96.0/24 #Ağdaki tum bilgisayarları tarar.
+nmap 192.168.96.0/24 #Ağdaki tüm bilgisayarları tarar.
 
 
------------hedef sisteme hagi yollardan gidildiğinin bulunması-----------------
+-----------traceroute - hedef sisteme hangi yollardan gidildiğinin bulunması-----------------
 traceroute google.com
 
 
-----------soket bağlantılarını listeleme--------
+----------netstat - ağ bağlantılarını, ağ arayüzlerine ait istatistikleri ve yönlendirme tablosunu, listeleme--------
 cat /etc/services
 netstat
 netstat -n #adreslerin IP değerini gösterir-daha hızlı
-netstat -p #process id değeri de gösterilir
 netstat -nt #tcp |grep ESTA
 netstat -nu #udp
 netstat -i # istatistikleri incelemek için (ping -f ile yapılan istek sayısı gözlenebilir...) 
