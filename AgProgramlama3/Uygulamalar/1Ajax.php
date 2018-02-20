@@ -53,7 +53,7 @@
 		
 		</div>
 
-		<div id="listele2" style="display: none;margin-left: 300px"></div>
+
 
 	</body>
 </html>

@@ -19,6 +19,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
         {
 
             $("#mesaj").hide();
+
             $('#gonder').click(function() {
 
                 // var form_data= $("#form1").serialize();
