@@ -1,0 +1,19 @@
+
+telnet time.nist.gov 13
+nc time.nist.gov 13 #National Institute for Standards and Technology (NIST) 
+
+1999  netcat -l 12345 #sunucu
+1998  nc 127.0.0.1 12345 #istemci
+
+1999  nc -l -p 8000 # windows sunucu
+2004  nc 172.16.0.138 8000
+
+ 
+ 2001  nc -l 12345 > deneme1.txt
+ 2004  nc 127.0.0.1 12345 < a.txt
+ 
+
+
+$> printf "GET / HTTP/1.0\r\n\r\n" | nc 192.168.56.101 80 # web sunucudan index.html dosyası istenir
+ 
+
