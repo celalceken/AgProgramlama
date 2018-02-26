@@ -13,13 +13,8 @@
 		<script>
 			function listele()
 			{
-				if (window.XMLHttpRequest)
-				{
-					//  Firefox, Chrome, Opera, IE7+,  Safari v.s.
-					xmlhttp = new XMLHttpRequest(); // readystate:0
-					//Ajax engine oluşturuluyor... sunucuyla olan tüm iletişim bu nesne üzerinden
-					//asenkron olarak gerçekleştirilecek...
-				}
+
+                xmlhttp = new XMLHttpRequest(); // readystate:0
 
 				xmlhttp.onreadystatechange = function() //istek durumunu tutan readystate her değiştişinde 
 				//bu fonksiyon tetikleniyor. readystate 0-4 arası değer alıyor. 4->istek sonucu 
