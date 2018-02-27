@@ -121,7 +121,7 @@ public class CokIsParcacikliTCPSunucu
 					outputLine = inputLine.toUpperCase(); // 
 
 					this.out.println(outputLine); // 
-					if (outputLine.equals("son")) // 
+					if (inputLine.equals("son")) // 
 						break;
 				}
 				System.out.println(this.getClientSocket().getRemoteSocketAddress() + " baglantisi kesildi.");

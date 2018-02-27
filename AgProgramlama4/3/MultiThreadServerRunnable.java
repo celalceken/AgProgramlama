@@ -34,7 +34,7 @@ public class MultiThreadServerRunnable implements Runnable {
 			outputLine = inputLine.toUpperCase(); // 
 			
 			out.println(outputLine); // 
-			if (outputLine.equals("son")) // 
+			if (inputLine.equals("son")) // 
 				break;
 		}
 		System.out.println(clientSocket.getLocalSocketAddress() + " baglantisi kesildi.");
