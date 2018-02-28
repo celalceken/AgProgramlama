@@ -52,7 +52,7 @@ public class TCPSunucu {
 			outputLine = inputLine.toUpperCase(); // 
 			
 			out.println(outputLine); // 
-			if (outputLine.equals("son")) // 
+			if (inputLine.equals("son")) // 
 				break;
 		}
 		System.out.println(" baglantisi kesildi.");
