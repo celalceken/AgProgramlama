@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,8 +30,6 @@ public class UDPIstemci
 	private final static Logger audit = Logger.getLogger("requests");
 	private final static Logger errors = Logger.getLogger("errors");
 	
-	private final static int TIMEOUT = 3000;   // Resend timeout (milliseconds)
-	private final static int MAXTRIES = 5;     // Maximum retransmissions
 
 
 	public static void main(String[] args) 
@@ -45,7 +44,11 @@ public class UDPIstemci
 			Logger.getLogger("").addHandler(handler);
 			
 			// Soket oluşturuluyr
-			socketClient = new DatagramSocket();
+			//socketClient = new DatagramSocket();
+		
+			socketClient= new DatagramSocket();
+			
+		
 			
 			// veri gönderildikten sonra yanıtın gelmesini bekleme süresi ayarlanıyor. UDP, TCP gibi 
 			//bağlantı yönelimli olmadığı için bu kadar süre sonra yanıt gelmez ise verinin gitmediği düşünülebilir...

@@ -44,7 +44,7 @@ public class UDPIstemciZamanAsimi
 		try
 		{	//Log dosyası belirleniyor...
 
-			FileHandler handler = new FileHandler("Logs/client.log", 100000, 10000);
+			FileHandler handler = new FileHandler("Logs/client.log");
 			Logger.getLogger("gunluk").addHandler(handler);
 
 			// Soket oluşturuluyor

@@ -27,6 +27,7 @@ import java.util.logging.*;
 public class TCPSunucu
 {
 	private static final int PORT = 8080;
+	private static final int eNbUYUKbAGLANTIsAYISI=2;
 	private final static Logger auditLogger = Logger.getLogger("requests");
 	private final static Logger errorLogger = Logger.getLogger("errors");
 	
@@ -39,14 +40,16 @@ public class TCPSunucu
 	{	
 		// Log dosyası belirleniyor
 		
-		FileHandler handler = new FileHandler("test.log", 100000, 10000);
+		FileHandler handler = new FileHandler("test.log");
 		Logger.getLogger("").addHandler(handler);
 		
+		//Oluşturulacak thread miktarını sınırlamak için ExecutorService kullanılır
+		ExecutorService executor = Executors.newFixedThreadPool(eNbUYUKbAGLANTIsAYISI);
 		
-		// DOS saldırılarına karşı, oluşturulacak thread miktarını sınırlamak için ExecutorService kullanılır
-		ExecutorService executor = Executors.newFixedThreadPool(2);
-		ServerSocket serverSocket = new ServerSocket(PORT);
-		System.out.println("Listening");
+		ServerSocket serverSocket = new ServerSocket(PORT,eNbUYUKbAGLANTIsAYISI); // ikinci parametre ile bağlantı sayısı sınırlanıyor. 
+		// Platforma bağlı olarak bu parametre farklı şekilde değerlendirilebiliyor (dikkate alınmayabiliyor). 
+		
+		System.out.println("Sunucu başlatıldı, istek bekleniyor...");
 		try {
 			while (true) 
 			{
@@ -59,10 +62,6 @@ public class TCPSunucu
 				//task.start();
 			}
 			
-			/*The finally block always executes when the try block exits. This ensures that the finally block is executed even if 
-			an unexpected exception occurs. But finally is useful for more than just exception handling — it allows the programmer 
-			to avoid having cleanup code accidentally bypassed by a return, continue, or break. 
-			Putting cleanup code in a finally block is always a good practice, even when no exceptions are anticipated.*/
 		}catch (IOException ex) {
 			errorLogger.log(Level.SEVERE, "accept error", ex);
 		}
@@ -141,8 +140,8 @@ public class TCPSunucu
 					System.out.println(this.getClientSocket().getRemoteSocketAddress()+"istemcisinden gelen :" + inputLine);
 					outputLine = inputLine.toUpperCase(); // 
 
-					this.out.println(outputLine); // 
-					if (outputLine.equals("BYE")) // 
+					this.getOut().println(outputLine); // 
+					if (inputLine.equals("son")) // 
 						break;
 				}
 				System.out.println(this.getClientSocket().getLocalSocketAddress() + " baglantisi kesildi.");

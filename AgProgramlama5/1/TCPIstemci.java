@@ -31,8 +31,8 @@ public class TCPIstemci {
 		// klavyeden girdi: stdIn
 		BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 		String userInput;
-		System.out.println("Buyuk harflere cevrilmesi icin girdi bekleniyor (baglantiyi kesmek icin: end) ...");
-		while (!(userInput = stdIn.readLine()).equals("end")) {
+		System.out.println("Buyuk harflere cevrilmesi icin girdi bekleniyor (baglantiyi kesmek icin: son) ...");
+		while (!(userInput = stdIn.readLine()).equals("son")) {
 			out.println(userInput);
 			System.out.println("Sunucudan gelen: " + in.readLine());
 		}

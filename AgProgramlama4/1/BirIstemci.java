@@ -36,8 +36,8 @@ public class BirIstemci
 		
 		
 		
-		out.println("GET / HTTP/1.0\r\n\r\n");   
-		//out.println("GET /index1.html HTTP/1.0\r\n\r\n"); 
+		//out.println("GET / HTTP/1.0\r\n\r\n");   
+		out.println("GET /index1.html HTTP/1.0\r\n\r\n"); 
 		out.flush();
 		
 		

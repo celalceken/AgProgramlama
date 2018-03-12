@@ -24,7 +24,7 @@ public class UDPSunucu {
 		{
 			//Log dosyası belirleniyor...
 			
-			FileHandler handler = new FileHandler("server.log", 100000, 10000);
+			FileHandler handler = new FileHandler("server.log");
 			Logger.getLogger("").addHandler(handler);
 			
 			socketServer = new DatagramSocket(pORT);
