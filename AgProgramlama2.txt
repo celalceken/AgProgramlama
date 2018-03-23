@@ -22,7 +22,7 @@ ping 192.168.2.56 -f #dos saldırısı
 -----------tcpdump - ağ arayüzündeki akışın görüntülenmesi---------------
 sudo tcpdump -i vboxnet0
 sudo tcpdump -i vboxnet0 port 80
-sudo tcpdump -i eth0 dst 173.194116.162
+sudo tcpdump -i eth0 dst 173.194.116.162
 sudo tcpdump  '(icmp or udp)' -i vboxnet0 # sadece icmp ve udp paketlerini gösterir
 sudo tcpdump -nnXSs 0 'port 80' -i vboxnet0  # başlık ile birlikte verinin (payload) de yakalanması 
 
