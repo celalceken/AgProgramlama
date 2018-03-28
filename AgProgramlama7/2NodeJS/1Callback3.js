@@ -5,15 +5,17 @@
 
 var fs = require("fs");
 
-
-var callbackFoksiyon = function (err, data)//callback function - // Dosya okuma işleminin tamamlanması beklenmez (non-blocking)
+//Dosya okuma işlemi tamamlandığında olay yayılır (event emitting) ve callback fonksiyon (bu fonksiyon (listener-Observer)) çalıştırılmak
+// üzere Event Queue içerisine oradan da Call Stack içerisine gönderilir. Call Stack içerisindeki fonksiyon dosya okuma işleminin
+// tamamlanmasını beklenmez (non-blocking I/O)
+var callbackFoksiyon = function (err, data)
     {   console.log("Fonksiyon başlangıcı...");
         if (err) return console.error(err);
-        console.log("1. Başlatilan İşlemin sonucu:\n "+ data.toString()); //Dosya okuma işlemi tamamlandığında callback fonksiyonu (bu fonksiyon) çalıştırılır.
+        console.log("1. Başlatilan İşlemin sonucu:\n "+ data.toString());
     }
 
 
-fs.readFile('11File.xml',callbackFoksiyon);
+fs.readFile('1File.xml',callbackFoksiyon);
 
 console.log("2. Başlatilan İşlem");
 
