@@ -54,7 +54,7 @@ app.get('/',function(req,res){
 
 app.get('/AnaSayfa',function(req,res){
     sess = req.session;
-    if(sess.personelNo) {
+    if(sess.body.baglandi) {
         res.render('AnaSayfa.html', { personelNo:sess.personelNo });
     } else {
         res.write("<h1>Öncelikle Giriş Yapmalısınız.</h1>");

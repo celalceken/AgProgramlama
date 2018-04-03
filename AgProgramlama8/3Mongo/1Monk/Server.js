@@ -11,8 +11,8 @@ should.exists(collection);
 // Ekleme
 
 var kayit= {
-    "ogrenciNo": "yxz",
-    "adi": "Mehmet",
+    "ogrenciNo": "0002",
+    "adi": "Meltem",
     "soyadi": "Şahin",
     "telefon": {
         "ev": "12345678",
@@ -36,14 +36,14 @@ var kayit= {
 
 
 // Listeleme	    
-collection.find({"ogrenciNo":"yxz"}, { limit : 100 }, function (err, docs){
+collection.find({"ogrenciNo":"0002"}, { limit : 100 }, function (err, docs){
   for(i=0;i<docs.length;i++)
     console.log(docs[i]);
 });
 
 
 // Silme
-collection.remove({ ogrenciNo: '00000000002' }, function (err) {
+collection.remove({ ogrenciNo: 'xyz' }, function (err) {
     if (err) throw err;
 });
 
