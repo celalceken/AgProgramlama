@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <duyurular>
 
     <duyuru>
+        <duyuruNo>1</duyuruNo>
+        <duyuruAyrinti>Duyuru Ayrıntısı Bir</duyuruAyrinti>
+
+    </duyuru>
+    <duyuru>
         <duyuruNo>2</duyuruNo>
-        <duyuruAyrinti>Duyuru 4dgdgds</duyuruAyrinti>
+        <duyuruAyrinti>Duyuru Ayrıntısı İki</duyuruAyrinti>
 
     </duyuru>
 

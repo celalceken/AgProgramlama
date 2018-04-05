@@ -10,7 +10,6 @@ var http = require('http');
 var app = express();
 var socket = require('socket.io');
 var path = require('path');
-//var logger = require('morgan');  // log requests to the console
 var fs=require('fs');
 //Server instance
 var server = http.createServer(app);
@@ -27,7 +26,7 @@ app.use(express.static(__dirname + '/node_modules'));
 
 app.get('/',function(req,res){
 
-    res.sendFile(__dirname + '/City.html');
+    res.sendFile(__dirname + '/index.html');
 
 });
 
@@ -37,18 +36,15 @@ server.listen(8080,function(){
 });
 
 
-// creating a new websocket to keep the content updated without any AJAX request
 io.on('connection', function(socket) {
     console.log("istemci bağlandı...");
-    // watching the xml file
+    // Duyurular.xml dosyasını izle
     fs.watchFile(__dirname + '/Duyurular.xml', function(curr, prev) {
-        // on file change we can read the new xml
-        fs.readFile(__dirname + '/Duyurular.xml', function(err, data) {
+        fs.readFile(__dirname + '/Duyurular.xml', function(err, dosyaIcerigi) {
             if (err) throw err;
-            // parsing the new xml data and converting them into json file
-            var json = parser.toJson(data);
-            // send the new data to the client
-            socket.emit('notification', json);
+            var dosyaIcerigiJSON = parser.toJson(dosyaIcerigi);
+            // yeni duyuruyu tüm istemcilere gönder
+            socket.emit('yeniDuyuru', dosyaIcerigiJSON);
         });
     });
 
