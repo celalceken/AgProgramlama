@@ -4,11 +4,7 @@
   "description": "my first socket.io app",
   "dependencies":
   {
-    "express": " ",
-    "socket.io": " ",
-    "should":" ",
-    "mongodb": " ",
-    "monk": " "
-
+    "should":"11.2.1",
+    "monk": "4.0.0"
   }
 }

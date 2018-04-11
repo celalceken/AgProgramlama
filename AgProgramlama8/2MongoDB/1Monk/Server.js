@@ -3,6 +3,17 @@ var monk = require("monk"); // a framework that makes accessing MongoDb really e
 
 
 //var db = monk('mongodb://wsan@192.168.56.103:27017/OgrenciBilgiSistemi');
+//MongoClient.connect('mongodb://'+DATABASEUSERNAME+':'+DATABASEPASSWORD+'@'+DATABASEHOST+':'DATABASEPORT+'/'+DATABASENAME,function(err, db){
+/*var db = monk('mongodb://localhost/OgrenciBilgiSistemi', function (err) {
+    if(err)
+        console.log(err);
+    else
+    {
+        console.log('Mongo Conn....');
+
+    }});*/
+
+
 var db = monk('localhost/OgrenciBilgiSistemi');
 should.exists(db);
 var collection = db.get("ogrenciler");
@@ -11,7 +22,7 @@ should.exists(collection);
 // Ekleme
 
 var kayit= {
-    "ogrenciNo": "0002",
+    "ogrenciNo": "0012",
     "adi": "Meltem",
     "soyadi": "Şahin",
     "telefon": {
@@ -21,24 +32,24 @@ var kayit= {
 }
 
 
- collection.insert(kayit, function(err, doc){
-	    	if(err)
-	    	{
-	    		console.log("HATA");
-	    	}
-	    	else
-	    	{
-	    		console.log("eklendi - ");
-	    	}
-	    });
-	    
+collection.insert(kayit, function(err, doc){
+    if(err)
+    {
+        console.log("HATA");
+    }
+    else
+    {
+        console.log("eklendi - ");
+    }
+});
+
 
 
 
 // Listeleme	    
 collection.find({"ogrenciNo":"0002"}, { limit : 100 }, function (err, docs){
-  for(i=0;i<docs.length;i++)
-    console.log(docs[i]);
+    for(i=0;i<docs.length;i++)
+        console.log(docs[i]);
 });
 
 
@@ -55,7 +66,7 @@ var yeniKayit= {
 
 }
 
-collection.update({ogrenciNo: '00000000004'}, yeniKayit);
+collection.update({ogrenciNo: '0003'}, yeniKayit);
 
 /*collection.findAndModify(
     {

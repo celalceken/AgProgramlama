@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
-//Types: String, Number, Date, Buffer, Boolean, Mixed, Objectid, Array, Decimal128
+//Veri Tipleri: String, Number, Date, Buffer, Boolean, Mixed, Objectid, Array, Decimal128
 
+// Şemalar veritabanında saklı nesneleri alanlar, kısıtlar, varsayılan değerler v.s. ile tanımlamayı sağlar.
 var kisiSema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
 
@@ -12,6 +13,8 @@ var kisiSema = mongoose.Schema({
     olusturulmaTarihi: {type: Date, default: Date.now() }
 });
 
+
+// Tanımlanan şemadan model oluşturuluyor. Model ile ekleme, silme, arama, güncelleme v.s. yapılabilir.
 var kisi = mongoose.model('kisi', kisiSema);
 
 module.exports = kisi;
