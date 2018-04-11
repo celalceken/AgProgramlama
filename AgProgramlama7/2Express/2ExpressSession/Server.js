@@ -8,7 +8,7 @@
 var express = require('express');
 var path = require('path');
 var session = require('express-session');  //"cookie-session" modülü tüm oturum bilgilerini istemcide saklar
-var logger = require('morgan');  // log requests to the console
+var logger = require('morgan');  // isteklerle ilgili logları konsola yazmak için
 //var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');  //  get parameters from a request
 
