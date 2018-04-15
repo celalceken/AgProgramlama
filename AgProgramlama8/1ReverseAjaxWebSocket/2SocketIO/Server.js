@@ -16,8 +16,7 @@ var server = http.createServer(app);
 //build a socket using the instance of the server
 var io=socket(server);
 
-parser = new require('xml2json'),
-
+parser = new require('xml2json');
 
 //app.use()  gerekli olan middleware (fonksiyon) leri eklemek (aktif hale getirmek) için kullanılır
 //app.use(logger('dev'));
