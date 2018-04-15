@@ -2,7 +2,7 @@
 
 require_once "Configuration/DatabaseConnection1.php";
 
-$sql="SELECT * FROM \"Ogrenci\" where \"adi\" Like '".$_POST['adi']."%'";
+$sql="SELECT \"adi\", \"soyadi\" FROM \"Ogrenci\" where \"adi\" Like '".$_POST['adi']."%'";
 
 $result =pg_query($baglantiNo, $sql);
 
@@ -16,5 +16,4 @@ while ($row = pg_fetch_array($result))
 }
 
 print json_encode($str);
-
 
