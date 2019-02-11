@@ -1,10 +1,10 @@
-#---------Sanallaştırma ile Ağ ortamının hazirlanması----------------
+# Sanallaştırma ile Ağ ortamının hazirlanması
 vmware, virtual box ...
 Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
 
 
 
-# ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme ... ---------------
+# ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme ... 
 ifconfig
 ifconfig eth0 192.168.2.11
 sudo ifconfig eth0 down
@@ -21,7 +21,7 @@ ping 192.168.2.56 -f #dos saldırısı
 3. Dos saldırısının görüntülemesi
 4. NetCat ile oluşturulan istemci ile sunucu haberleşmesinin görüntülenmesi
 
-#----------tcpdump - ağ arayüzündeki akışın görüntülenmesi---------------
+# tcpdump - ağ arayüzündeki akışın görüntülenmesi 
 sudo tcpdump -i vboxnet0
 sudo tcpdump -i vboxnet0 port 80
 sudo tcpdump -i eth0 dst 173.194.116.162
@@ -29,7 +29,7 @@ sudo tcpdump  '(icmp or udp)' -i vboxnet0 # sadece icmp ve udp paketlerini göst
 sudo tcpdump -nnXSs 0 'port 80' -i vboxnet0  # başlık ile birlikte verinin (payload) de yakalanması 
 
 
-#----------netcat - soket programlarının/bağlantılarının testi-------------
+# netcat - soket programlarının/bağlantılarının testi
 
 nc time.nist.gov 13
 
@@ -58,7 +58,7 @@ nc -zv localhost 20-30 #port tarama
 nc -zv localhost 20-80
 
 
-#--------ssh - sistemlerin uzaktan yönetimi-----------
+# ssh - sistemlerin uzaktan yönetimi
 
 sudo service ssh start  #Openssh sunucu servisi başlatılıyor.
 
@@ -67,7 +67,7 @@ ssh -X wsan@102.168.1.12 # istemciye ait grafik arayüzünün kullanılabilmesi
 
 
 
-#---------nmap - port tarama-------------
+# nmap - port tarama
  nmap ile http, ssh ve nc portlarının taranması
 
 nmap xyz.com.tr
@@ -84,11 +84,11 @@ nmap 192.168.96.1 -p 22 # belirli portu tarama
 nmap 192.168.96.0/24 #Ağdaki tüm bilgisayarları tarar.
 
 
-#----------traceroute - hedef sisteme hangi yollardan gidildiğinin bulunması-----------------
+# traceroute - hedef sisteme hangi yollardan gidildiğinin bulunması
 traceroute google.com
 
 
-#---------netstat - ağ bağlantılarını, ağ arayüzlerine ait istatistikleri ve yönlendirme tablosunu, listeleme--------
+# netstat - ağ bağlantılarını, ağ arayüzlerine ait istatistikleri ve yönlendirme tablosunu, listeleme--------
 cat /etc/services
 netstat
 netstat -n #adreslerin IP değerini gösterir-daha hızlı
