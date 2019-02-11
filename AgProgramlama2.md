@@ -88,7 +88,7 @@ nmap 192.168.96.0/24 #Ağdaki tüm bilgisayarları tarar.
 traceroute google.com
 
 
-# netstat - ağ bağlantılarını, ağ arayüzlerine ait istatistikleri ve yönlendirme tablosunu, listeleme--------
+# netstat - ağ bağlantılarını, ağ arayüzlerine ait istatistikleri ve yönlendirme tablosunu, listeleme
 cat /etc/services
 netstat
 netstat -n #adreslerin IP değerini gösterir-daha hızlı
