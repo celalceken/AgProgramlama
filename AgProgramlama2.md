@@ -3,6 +3,7 @@ vmware, virtual box ...
 Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
 
 
+
 ------------ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme ... ---------------
 ifconfig
 ifconfig eth0 192.168.2.11
@@ -18,6 +19,7 @@ ping 192.168.2.56 -f #dos saldırısı
 # 1. web sunucuya misafir makinadan bağlantı yapılması
 # 2. tcpdump ile bu bağlantıya ait akışın görüntülenmesi
 # 3. Dos saldırısının görüntülemesi
+# 4. NetCat ile oluşturulan istemci ile sunucu haberleşmesinin görüntülenmesi
 
 -----------tcpdump - ağ arayüzündeki akışın görüntülenmesi---------------
 sudo tcpdump -i vboxnet0
@@ -27,7 +29,7 @@ sudo tcpdump  '(icmp or udp)' -i vboxnet0 # sadece icmp ve udp paketlerini göst
 sudo tcpdump -nnXSs 0 'port 80' -i vboxnet0  # başlık ile birlikte verinin (payload) de yakalanması 
 
 
------------netcat - soket bağlantılarının testi-------------
+-----------netcat - soket programlarının/bağlantılarının testi-------------
 
 nc time.nist.gov 13
 
@@ -35,39 +37,40 @@ nc time.nist.gov 13
 #National Institute for Standards and Technology (NIST) and ask it for the current time.
 
 
-nc -l 8001 # sunucu (192.168.1.1) #  -u udp soketiçin kullanılır.
-nc 192.168.1.1 8001 #istemci
+nc -l 8001 # sunucu (192.168.56.103) #  -u udp soketiçin kullanılır.
+nc 192.168.56.103 8001 #istemci
 
+nc -l -p 8000 # windows sunucu için -p de kullanmak gerekir.
+nc 172.16.0.138 8000
+         
 nc -l 8001 > Hedef.txt # dosya transferi
 nc 192.168.1.1 8001 <Kaynak.txt
-
-
-nc -l -p 8000 # windows sunucu
-nc 172.16.0.138 8000
-
  
 nc -l 12345 > deneme1.txt
 nc 127.0.0.1 12345 < a.txt
  
 
 
-$> printf "GET / HTTP/1.0\r\n\r\n" | nc 192.168.56.101 80 # web sunucudan index.html dosyası istenir
- 
+printf "GET / HTTP/1.0\r\n\r\n" | nc 192.168.56.103 80 # web sunucudan index.html dosyası istenir
+printf "GET /index1.html HTTP/1.0\r\n\r\n" | nc 192.168.56.103 80 # web sunucudan index1.html dosyası istenir
+
 nc -zv localhost 20-30 #port tarama
 nc -zv localhost 20-80
 
 
 ---------ssh - sistemlerin uzaktan yönetimi-----------
 
+sudo service ssh start  #Openssh sunucu servisi başlatılıyor.
 
 ssh wsan@102.168.1.12  # secure shell
 ssh -X wsan@102.168.1.12 # istemciye ait grafik arayüzünün kullanılabilmesi
 
 
+
 ----------nmap - port tarama-------------
 # nmap ile http, ssh ve nc portlarının taranması
 
-nmap sakarya.edu.tr
+nmap xyz.com.tr
 nmap 192.168.96.1
 
 nmap 192.168.96.1 -F #fast scan...  işletim sistemi v.s. taranmaz... sadece port açık/kapalı
