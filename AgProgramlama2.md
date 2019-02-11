@@ -1,27 +1,27 @@
-----------Sanallastirma ortaminin hazirlanmasi----------------
+#---------Sanallaştırma ile Ağ ortamının hazirlanması----------------
 vmware, virtual box ...
 Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
 
 
 
-------------ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme ... ---------------
+#-----------ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme ... ---------------
 ifconfig
 ifconfig eth0 192.168.2.11
 sudo ifconfig eth0 down
 sudo ifconfig eth0 up
 sudo dhclient eth0     # eth0 arayüzü için DHCP den yeni IP isteniyor
 
---------ping - Hedef sistemin erişilebilirliğinin denetimi -----------
+#--------ping - Hedef sistemin erişilebilirliğinin denetimi -----------
 ping 192.168.2.56   # belirtilen cihaza echo isteği gönderilir ve gelen yanıta göre gecikme (RTT) yazdırılır. 
 ping 192.168.2.56 -c 3  #sadece 3 paket gönder
 ping 192.168.2.56 -f #dos saldırısı
 
-# 1. web sunucuya misafir makinadan bağlantı yapılması
-# 2. tcpdump ile bu bağlantıya ait akışın görüntülenmesi
-# 3. Dos saldırısının görüntülemesi
-# 4. NetCat ile oluşturulan istemci ile sunucu haberleşmesinin görüntülenmesi
+1. web sunucuya misafir makinadan bağlantı yapılması
+2. tcpdump ile bu bağlantıya ait akışın görüntülenmesi
+3. Dos saldırısının görüntülemesi
+4. NetCat ile oluşturulan istemci ile sunucu haberleşmesinin görüntülenmesi
 
------------tcpdump - ağ arayüzündeki akışın görüntülenmesi---------------
+#----------tcpdump - ağ arayüzündeki akışın görüntülenmesi---------------
 sudo tcpdump -i vboxnet0
 sudo tcpdump -i vboxnet0 port 80
 sudo tcpdump -i eth0 dst 173.194.116.162
@@ -29,12 +29,12 @@ sudo tcpdump  '(icmp or udp)' -i vboxnet0 # sadece icmp ve udp paketlerini göst
 sudo tcpdump -nnXSs 0 'port 80' -i vboxnet0  # başlık ile birlikte verinin (payload) de yakalanması 
 
 
------------netcat - soket programlarının/bağlantılarının testi-------------
+#----------netcat - soket programlarının/bağlantılarının testi-------------
 
 nc time.nist.gov 13
 
-#You’re going to connect to the daytime server at the
-#National Institute for Standards and Technology (NIST) and ask it for the current time.
+--You’re going to connect to the daytime server at the
+--National Institute for Standards and Technology (NIST) and ask it for the current time.
 
 
 nc -l 8001 # sunucu (192.168.56.103) #  -u udp soketiçin kullanılır.
@@ -58,7 +58,7 @@ nc -zv localhost 20-30 #port tarama
 nc -zv localhost 20-80
 
 
----------ssh - sistemlerin uzaktan yönetimi-----------
+#--------ssh - sistemlerin uzaktan yönetimi-----------
 
 sudo service ssh start  #Openssh sunucu servisi başlatılıyor.
 
@@ -67,8 +67,8 @@ ssh -X wsan@102.168.1.12 # istemciye ait grafik arayüzünün kullanılabilmesi
 
 
 
-----------nmap - port tarama-------------
-# nmap ile http, ssh ve nc portlarının taranması
+#---------nmap - port tarama-------------
+ nmap ile http, ssh ve nc portlarının taranması
 
 nmap xyz.com.tr
 nmap 192.168.96.1
@@ -84,11 +84,11 @@ nmap 192.168.96.1 -p 22 # belirli portu tarama
 nmap 192.168.96.0/24 #Ağdaki tüm bilgisayarları tarar.
 
 
------------traceroute - hedef sisteme hangi yollardan gidildiğinin bulunması-----------------
+#----------traceroute - hedef sisteme hangi yollardan gidildiğinin bulunması-----------------
 traceroute google.com
 
 
-----------netstat - ağ bağlantılarını, ağ arayüzlerine ait istatistikleri ve yönlendirme tablosunu, listeleme--------
+#---------netstat - ağ bağlantılarını, ağ arayüzlerine ait istatistikleri ve yönlendirme tablosunu, listeleme--------
 cat /etc/services
 netstat
 netstat -n #adreslerin IP değerini gösterir-daha hızlı
@@ -96,4 +96,4 @@ netstat -nt #tcp |grep ESTA
 netstat -nu #udp
 netstat -i # istatistikleri incelemek için (ping -f ile yapılan istek sayısı gözlenebilir...) 
 
-#1. web sunucuyla olan bağlantının görüntülenmesi (misafir makinadan nc ile bağlantı) 
+1. web sunucuyla olan bağlantının görüntülenmesi (misafir makinadan nc ile bağlantı) 
