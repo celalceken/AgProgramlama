@@ -5,9 +5,9 @@ Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
 
 
 # ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme 
-ifconfig
-ifconfig eth0 192.168.2.11
-sudo ifconfig eth0 down
+ifconfig # tüm ağ arayüzlerini görüntüle
+ifconfig eth0 192.168.2.11 # eth0 arayüzüne belirtilen IP adresini ata
+sudo ifconfig eth0 down #
 sudo ifconfig eth0 up
 sudo dhclient eth0     # eth0 arayüzü için DHCP den yeni IP isteniyor
 
