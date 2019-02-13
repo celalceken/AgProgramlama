@@ -6,9 +6,9 @@ Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
 
 # ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme
 
-ifconfig # tüm ağ arayüzlerini görüntüle
+ifconfig // tüm ağ arayüzlerini görüntüle
 
-ifconfig eth0 192.168.2.11 -- eth0 arayüzüne belirtilen IP adresini ata
+ifconfig eth0 192.168.2.11 // eth0 arayüzüne belirtilen IP adresini ata
 
 sudo ifconfig eth0 down
 
@@ -19,7 +19,7 @@ sudo dhclient eth0     -- eth0 arayüzü için DHCP den yeni IP isteniyor
 ---
 # ping - Hedef sistemin erişilebilirliğinin denetimi
 
-ping 192.168.2.56   # belirtilen cihaza echo isteği gönderilir ve gelen yanıta göre gecikme (RTT) yazdırılır. 
+ping 192.168.2.56   // belirtilen cihaza echo isteği gönderilir ve gelen yanıta göre gecikme (RTT) yazdırılır. 
 
 ping 192.168.2.56 -c 3  #sadece 3 paket gönder
 
@@ -46,13 +46,9 @@ sudo tcpdump -nnXSs 0 'port 80' -i vboxnet0  # başlık ile birlikte verinin (pa
 ---
 # netcat - soket programlarının/bağlantılarının testi
 
-nc time.nist.gov 13
+nc time.nist.gov 13 //National Institute for Standards and Technology (NIST) de bulunan zaman sunucuya istek gönderiliyor
 
---You’re going to connect to the daytime server at the
---National Institute for Standards and Technology (NIST) and ask it for the current time.
-
-
-nc -l 8001 # sunucu (192.168.56.103) #  -u udp soketiçin kullanılır.
+nc -l 8001 # sunucu (192.168.56.103) //  -u udp soketiçin kullanılır.
          
 nc 192.168.56.103 8001 #istemci
 
