@@ -2,14 +2,15 @@
 vmware, virtual box ...
 Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
 
+---
 
+# ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme
 
-# ifconfig - Ağ arayüzlerinin ayarlarını görme/değiştirme 
 ifconfig # tüm ağ arayüzlerini görüntüle
-ifconfig eth0 192.168.2.11 # eth0 arayüzüne belirtilen IP adresini ata
-sudo ifconfig eth0 down #
+ifconfig eth0 192.168.2.11 -- eth0 arayüzüne belirtilen IP adresini ata
+sudo ifconfig eth0 down 
 sudo ifconfig eth0 up
-sudo dhclient eth0     # eth0 arayüzü için DHCP den yeni IP isteniyor
+sudo dhclient eth0     -- eth0 arayüzü için DHCP den yeni IP isteniyor
 
 # ping - Hedef sistemin erişilebilirliğinin denetimi 
 ping 192.168.2.56   # belirtilen cihaza echo isteği gönderilir ve gelen yanıta göre gecikme (RTT) yazdırılır. 
