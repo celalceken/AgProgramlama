@@ -74,6 +74,7 @@ nc 127.0.0.1 12345 < a.txt
  
 
 printf "GET / HTTP/1.0\r\n\r\n" | nc 192.168.56.103 80 -- web sunucudan index.html dosyası istenir
+
 printf "GET /index1.html HTTP/1.0\r\n\r\n" | nc 192.168.56.103 80 -- web sunucudan index1.html dosyası istenir
 
 nc -zv localhost 20-30 --port tarama
@@ -123,12 +124,12 @@ cat /etc/services
 
 netstat
 
-netstat -n #adreslerin IP değerini gösterir-daha hızlı
+netstat -n --adreslerin IP değerini gösterir-daha hızlı
 
-netstat -nt #tcp |grep ESTA
+netstat -nt -- tcp bağlantıları görüntüle (|grep ESTA)
 
-netstat -nu #udp
+netstat -nu -- udp bağlantıları görüntüle
 
-netstat -i # istatistikleri incelemek için (ping -f ile yapılan istek sayısı gözlenebilir...) 
+netstat -i -- istatistikleri incelemek için (ping -f ile yapılan istek sayısı gözlenebilir...) 
 
 1. web sunucuyla olan bağlantının görüntülenmesi (misafir makinadan nc ile bağlantı) 
