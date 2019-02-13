@@ -1,6 +1,11 @@
 # Sanallaştırma ile Ağ ortamının hazirlanması
-vmware, virtual box ...
-Ağ Ayarları - NAT (vmnet8), HostOnly (vmnet1, vboxnet0), Bridged arayüzleri
+vmware, virtual box ... gibi sanallaştırma platformları kullanılarak uygulamalarımızı test edeceğimiz sanal makinalar oluşturulur.
+
+Sanal makinaların haberleşebilmesi için ağ arayüzleri tanımlanmalıdır. Ağ arayüzleri üç farklı şekilde tanımlanabilir:
+
+1. NAT (vmnet8) 
+2. HostOnly (vmnet1, vboxnet0)
+3. Bridged
 
 ---
 
