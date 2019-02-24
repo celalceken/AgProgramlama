@@ -127,9 +127,10 @@ netstat
 netstat -n --adreslerin IP değerini gösterir-daha hızlı
 
 netstat -nt -- tcp bağlantıları görüntüle (|grep ESTA)
-
+  
 netstat -nu -- udp bağlantıları görüntüle
 
 netstat -i -- istatistikleri incelemek için (ping -f ile yapılan istek sayısı gözlenebilir...) 
 
-1. web sunucuyla olan bağlantının görüntülenmesi (misafir makinadan nc ile bağlantı) 
+1. web sunucuyla olan bağlantının (tarayıcıdan) görüntülenmesi ve misafir makinadan nc ile bağlantının görüntülenmesi
+netstat -nt |grep :80  -- Ubuntu makinada bu ifadeyi çalıştır
