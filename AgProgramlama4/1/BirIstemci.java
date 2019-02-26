@@ -4,7 +4,7 @@ import java.net.*;
 
 public class BirIstemci
 {
-	public static final String sERVER = "localhost";
+	public static final String sERVER = "192.168.56.103";
 	public static final int pORT = 80;
 	public static final int tIMEOUT = 2000;
 	
@@ -37,7 +37,7 @@ public class BirIstemci
 		
 		
 		//out.println("GET / HTTP/1.0\r\n\r\n");   
-		out.println("GET /index1.html HTTP/1.0\r\n\r\n"); 
+		out.println("GET / HTTP/1.0\r\n\r\n"); 
 		out.flush();
 		
 		

@@ -57,9 +57,11 @@ public class TCPSunucu {
 		}
 		System.out.println(" baglantisi kesildi.");
 		// stream ve socketleri kapat.
-		out.close();
-		in.close();
-		clientSocket.close();
+		
+        clientSocket.close();
 		serverSocket.close();
+        out.close();
+        in.close();
+		
 	}
 }
