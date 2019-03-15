@@ -64,11 +64,7 @@ public class CokIsParcacikliTCPSunucu
 		 * Constructs a handler thread, squirreling away the socket.
 		 * All the interesting work is done in the run method.
 		 */
-		public Handler(Socket socket) {
-			this.setClientSocket( socket);
-		}
-
-
+		public Handler(Socket socket) { this.setClientSocket(socket); }
 
 		public Socket getClientSocket()
 		{
@@ -106,11 +102,13 @@ public class CokIsParcacikliTCPSunucu
 		}
 
 
-		public void run() 
+		public void run()
 		{
 			try {
-				this.setOut( new PrintWriter(this.getClientSocket().getOutputStream(), true));
-				this.setIn( new BufferedReader(new InputStreamReader(this.getClientSocket().getInputStream())));
+				this.setIn(new BufferedReader(new InputStreamReader(this.getClientSocket().getInputStream())));
+				this.setOut(new PrintWriter(this.getClientSocket().getOutputStream(), true));
+				//this.out= new PrintWriter(this.getClientSocket().getOutputStream(), true);
+				//this.setIn( new BufferedReader(new InputStreamReader(this.getClientSocket().getInputStream())));
 
 				String inputLine, outputLine;
 				System.out.println("istemciden girdi bekleniyor...");

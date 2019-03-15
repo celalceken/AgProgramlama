@@ -39,7 +39,7 @@ public class UDPSunucu {
 					// TCP deki stream yerine DatagramPacket kullanılıyor.
 					
 					byte[] in = new byte[1024]; 
-					byte[] out  = new byte[1024];
+					byte[] out;//  = new byte[1024];
 					
 					DatagramPacket gelenPaket = new DatagramPacket(in, in.length);
 

@@ -47,8 +47,8 @@ public class UDPIstemci
 			//socketClient = new DatagramSocket();
 		
 			socketClient= new DatagramSocket();
-			
-		
+
+
 			
 			// veri gönderildikten sonra yanıtın gelmesini bekleme süresi ayarlanıyor. UDP, TCP gibi 
 			//bağlantı yönelimli olmadığı için bu kadar süre sonra yanıt gelmez ise verinin gitmediği düşünülebilir...
