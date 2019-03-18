@@ -5,7 +5,7 @@
 
 var fs = require("fs");
 
-var data = fs.readFileSync('1File.xml');  // Dosya okuma işlemi tamamlanana kadar burada bekler (blocking)
+var data = fs.readFileSync(__dirname+'/1File.xml');  // Dosya okuma işlemi tamamlanana kadar burada bekler (blocking)
 
 console.log("1. Başlatilan İşlemin sonucu:\n "+ data.toString());
 console.log("2. Başlatilan İşlem");

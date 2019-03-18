@@ -15,16 +15,15 @@ var fs = require('fs');
 var url = require('url');
 
 
-// Create a http server
+//Web sunucu oluşturularak başlatılıyor
 http.createServer( function (request, response) {
-    // Parse the request containing file name
+    //URL içerisinden istenen kaynak bilgisi alınıyor
     var pathname = url.parse(request.url).pathname;
 
-    // Print the name of the file for which request is made.
     console.log("istenen sayfa " + pathname );
 
-    // Read the requested file content from file system
-    fs.readFile(pathname.substr(1), function (err, data) {
+    // İstenen dosya okunuyor ve yanıt olarak gönderiliyor
+    fs.readFile(__dirname+pathname, function (err, data) {
         if (err) {
             console.log("İstenen Sayfa Yok"+err);
             // HTTP Status: 404 : NOT FOUND

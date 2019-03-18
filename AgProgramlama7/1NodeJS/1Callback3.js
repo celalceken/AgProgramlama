@@ -15,7 +15,7 @@ var callbackFoksiyon = function (err, data)
     }
 
 
-fs.readFile('1File.xml',callbackFoksiyon);
+fs.readFile(__dirname+'/1File.xml',callbackFoksiyon);
 
 console.log("2. Başlatilan İşlem");
 
