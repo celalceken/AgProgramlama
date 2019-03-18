@@ -11,3 +11,4 @@ gibi işlemleri içermektedir.
 NodeJS; Google V8 (C++) JS motoru, libuv (C) modülü, NodeJS bağlayıcısı (C++) ve NodeJS Core Library (Java Script) bileşenlerinde oluşur.
 
 
+Ayrıntılı bilgi için: <http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf>
