@@ -13,7 +13,7 @@ package.json dosyası projenizin kurulumunu ve çalıştırılmasını sağlar.
 > npm uninstall -g express      # global yüklü paketi kaldır
 > npm install express@3.0.0     # yerel olarak 3.0.0 sürümünü yükle
 > npm install express           # son sürümünü yerele yükle
-> npm install express@^3.0.0    # sürüm 3.x.x i yükle (patch (~), minor(^) düzeltme(revision))
+> npm install express@3.0.0    # sürüm 3.x.x i yükle (patch (~), minor(^) düzeltme(revision))
 > npm install express@3.0.0 --save --save-exact  #package.json dosyasına da yaz ("express": "3.0.0" diye yazar. save-exact demeseydik "^3.0.0" yazacaktı).
 
 

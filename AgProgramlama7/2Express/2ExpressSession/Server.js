@@ -32,8 +32,7 @@ app.use(session({
     // Oturum bilgileri ölçeklenebilirliği sağlamak için redis, memcached ya da veritabanlarında saklanabilir.
      //store: new redisStore({ host: 'localhost', port: 6379, ...}),
     // store: new MemcachedStore({ host: 'localhost', port: 6379, ...}),
-    // store: new MongoStore({ host: 'localhost', port: 6379, ...}),
-    resave: false, //
+    //store: new MongoStore({ url: "mongodb://localhost:27017/OgrenciBilgiSistemi", "collection": "OturumBilgileri" }),
     saveUninitialized: false, //
     cookie: { maxAge: 60000 } // çerezin ömrü (ms)- varsayılan null(tarayıcı kapatıldığında biter)
 }));
