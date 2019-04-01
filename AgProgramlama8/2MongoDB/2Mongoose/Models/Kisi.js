@@ -15,6 +15,4 @@ var kisiSema = mongoose.Schema({
 
 
 // Tanımlanan şemadan model oluşturuluyor. Model ile ekleme, silme, arama, güncelleme v.s. yapılabilir.
-var kisi = mongoose.model('kisi', kisiSema);
-
-module.exports = kisi;
+module.exports = mongoose.model('kisi', kisiSema,'Kisiler');

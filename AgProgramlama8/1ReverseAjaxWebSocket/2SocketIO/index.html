@@ -3,7 +3,41 @@
 <head>
     <title>Duyurular </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+    <!--
+         Sunucunun node_models klasöründen alınıyor
+    -->
+    <script src="/jquery/dist/jquery.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // yeni bir soket oluşturuluyor
+        const socket = io();
+        socket.on('yeniDuyuru', function (gelenDuyuru) {
+
+            //alert(gelenDuyuru);
+
+            // JSON nesnesine dönüştür
+            var myObj = JSON.parse(gelenDuyuru);
+
+
+            //alert(myObj.duyurular.duyuru[0].duyuruNo);
+
+            /* $.each(myObj.duyurular.duyuru, function(index) {
+                 $.each(myObj.duyurular.duyuru[index], function (key, value) {
+                     alert(key + ": " + value);
+                 });
+             });*/
+            $('#duyurular').empty();
+            $.each(myObj.duyurular.duyuru, function(index) {
+                $('#duyurular').append(myObj.duyurular.duyuru[index].duyuruNo+' '+myObj.duyurular.duyuru[index].duyuruAyrinti+':'+new Date()+'<hr>');
+            });
+
+        });
+    </script>
 </head>
 <body>
 
@@ -36,38 +70,7 @@
 
 
 
-<!--
- Sunucunun node_models klasöründen alınıyor
--->
 
-<script src="/jquery/dist/jquery.js"></script>
-<script src="/socket.io-client/dist/socket.io.js"></script>
-<script>
-    // yeni bir soket oluşturuluyor
-    var socket = io.connect('http://localhost:8080');
-
-    socket.on('yeniDuyuru', function (gelenDuyuru) {
-
-        //alert(gelenDuyuru);
-
-        // JSON nesnesine dönüştür
-        var myObj = JSON.parse(gelenDuyuru);
-
-
-        //alert(myObj.duyurular.duyuru[0].duyuruNo);
-
-       /* $.each(myObj.duyurular.duyuru, function(index) {
-            $.each(myObj.duyurular.duyuru[index], function (key, value) {
-                alert(key + ": " + value);
-            });
-        });*/
-        $('#duyurular').empty();
-        $.each(myObj.duyurular.duyuru, function(index) {
-            $('#duyurular').append(myObj.duyurular.duyuru[index].duyuruNo+' '+myObj.duyurular.duyuru[index].duyuruAyrinti+':'+new Date()+'<hr>');
-        });
-
-    });
-</script>
 
 </body>
 </html>

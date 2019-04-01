@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Mesajlaşma Uygulaması</title>
+  <meta charset="utf-8">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -22,7 +24,7 @@
       </div>
 
       <div class="well">
-        <form action="">
+        <form action="" method="get">
           <input id="mesaj" /><button>Gönder</button>
         </form>
       </div>
@@ -51,7 +53,8 @@
 <script src="/jquery/dist/jquery.js"></script>
 <script src="/socket.io-client/dist/socket.io.js"></script>
 <script>
-    var socket = io.connect('http://localhost:8080');
+    //var socket = io.connect('http://localhost:8080');
+    var socket = io.connect();
     $('form').submit(function(){
         socket.emit('mesaj', $('#mesaj').val());
         $('#mesaj').val('');

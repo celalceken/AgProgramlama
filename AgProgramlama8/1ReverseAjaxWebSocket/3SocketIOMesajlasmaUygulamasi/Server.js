@@ -21,7 +21,9 @@ app.use(express.static(__dirname + '/node_modules'));
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
-
+/*app.get('/1', function(req, res){
+    res.sendFile(__dirname + '/Test.html');
+});*/
 server.listen(8080, function(){
     console.log('8080 Portu dinleniyor...');
 });
