@@ -42,7 +42,7 @@ var secret = "GizliIfade";
 
 var db = monk('localhost/OgrenciBilgiSistemi');
 should.exists(db);
-var collection = db.get("ogrenciler");
+var collection = db.get("Ogrenci");
 should.exists(collection);
 
 var router = express.Router(); //initiate a new Express Router.
@@ -79,48 +79,6 @@ router.get('/', function(req, res) {
 
     res.json({ mesaj: 'Rest API Ana Dizini ' });
 });
-
-//  http://localhost:8080/RestAPI/Ogrenciler
-router.route('/Ogrenciler')
-
-	// insert operation
-	.post(function(req, res) {
-
-        var kayit= {
-            "ogrenciNo": req.body.ogrenciNo,
-            "adi": req.body.adi,
-            "soyadi": "Yılmaz",
-            "telefon": {
-                "ev": "12345678",
-                "is": "87654321"
-            }
-        }
-
-
-        collection.insert(kayit, function(err, doc){
-            if(err)
-            {
-                console.log("Hata");
-            }
-            else
-            {
-                console.log("eklendi - ");
-                res.json({ mesaj: 'Kayıt Eklenmiştir' });
-            }
-        });
-		
-	})
-
-    // select  operation (all rows)
-	.get(function(req, res) {
-        collection.find({}, { limit : 50 }, function (err, docs){
-            /*for(i=0;i<docs.length;i++)
-                console.log(docs[i]);
-            });*/
-		    res.json(docs);
-		});
-	});
-
 
 
 // create JWT
@@ -161,7 +119,7 @@ function authSuccess(req, res) {
     //Request Header:
         //Content-Type: application/x-www-form-urlencoded
         //Request Body
-         //   Text: ogrenciNo:yxz
+         //   Text: ogrenciNo=yxz
 router.route('/Authenticate')
 
 // insert operation
@@ -202,7 +160,10 @@ router.route('/Authenticate/Ogrenciler/:ogrenciNo')
     .get(function(req, res) {
         console.log(req.params.ogrenciNo);
 
-
+    //http://localhost:8080/RestAPI/Authenticate/Ogrenciler/67?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOi...
+      /*  app.use(function (req, res) {
+            res.cookie('token',token, { maxAge: 700000, httpOnly: true })
+        });*/
         var receivedToken = req.body.token || req.query.token || req.headers['authorization'];
 
         if(receivedToken)
@@ -239,9 +200,6 @@ router.route('/Authenticate/Ogrenciler/:ogrenciNo')
 router.route('/Ogrenciler/:ogrenciNo')
 
 
-
-
-
     // select  operation (ogrenciNo)
 	.get(function(req, res) {
         console.log(req.params.ogrenciNo);
@@ -254,45 +212,4 @@ router.route('/Ogrenciler/:ogrenciNo')
             });
 
 	})
-
-    // update  operation (ogrenciNo)   req.params.ogrenciNo  - > RestAPI/Ogrenciler/6
-	.put(function(req, res) {
-        console.log(req.body.adi + '' +req.body.soyadi+''+ req.params.ogrenciNo);
-
-        //Bulduğu ilk kaydı günceller
-
-        collection.findAndModify(
-            {
-                query: {ogrenciNo: req.params.ogrenciNo},
-
-                update: { $set: {
-                                    adi: req.body.adi,
-                                    soyadi: req.body.soyadi
-                                }
-                        }
-            },
-            /*{"new": true, "upsert": true},*/
-            function (err, doc) {
-                if (err) throw err;
-                console.log(doc);
-            }
-        );
-        res.json({ mesaj: 'Güncelleme işlemi başarılı' });
-
-    })
-
-
-
-    //koşulu sağlayan tüm kayıtlar silinir
-    // delete  operation (ogrenciNo)
-	.delete(function(req, res) {
-        collection.remove({ogrenciNo:req.params.ogrenciNo}, function (err){
-            if (err) throw err;
-
-        res.json({ mesaj: 'Silme işlemi başarılı' });
-        })
-
-});
-
-
 

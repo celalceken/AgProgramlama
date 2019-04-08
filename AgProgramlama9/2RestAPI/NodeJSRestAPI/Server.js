@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true })); //express middleware - parse
 
 var db = monk('localhost/OgrenciBilgiSistemi');
 should.exists(db);
-var collection = db.get("ogrenciler");
+var collection = db.get("Ogrenci");
 should.exists(collection);
 
 var router = express.Router();
@@ -109,7 +109,9 @@ router.route('/Ogrenciler/:ogrenciNo')
 
         //Bulduğu ilk kaydı günceller
 
-        collection.findAndModify(
+        //users.findOneAndUpdate({name: 'foo'}, {name: 'bar'}).then((updatedDoc) => {})
+
+        /*collection.findAndModify(
             {
                 query: {ogrenciNo: req.params.ogrenciNo},
 
@@ -119,13 +121,24 @@ router.route('/Ogrenciler/:ogrenciNo')
                                 }
                         }
             },
-            /*{"new": true, "upsert": true},*/
+            /!*{"new": true, "upsert": true},*!/
             function (err, doc) {
                 if (err) throw err;
                 console.log(doc);
             }
-        );
+        );*/
+
+        // Güncelleme
+        var yeniKayit= {
+            "ogrenciNo": req.params.ogrenciNo,
+            "adi": req.body.adi,
+            "soyadi":req.body.soyadi
+
+        }
+
+        collection.update({ogrenciNo: req.params.ogrenciNo}, yeniKayit);
         res.json({ message: 'Güncelleme işlemi başarılı' });
+
 
     })
 

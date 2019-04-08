@@ -20,8 +20,7 @@ XML RPC (XML – Remote Procedure Call Protocol)
 ------Rest API testi için: Client (PHP Storm, curl, Postman (chrome))-------
 
 
-https://maps.googleapis.com/maps/api/geocode/json?address=Turkey&sensor=false
+curl --request GET https://api.github.com/users/kullaniciadiniz
+curl --request GET http://localhost:8080/RestAPI/Ogrenciler
+curl --request GET http://localhost:8080/RestAPI/Ogrenciler/0002
 
-https://maps.googleapis.com/maps/api/geocode/json?latlng=40.742447,30.325603&sensor=false
-
-curl --request GET https://maps.googleapis.com/maps/api/geocode/json?latlng=40.742447,30.325603&sensor=false

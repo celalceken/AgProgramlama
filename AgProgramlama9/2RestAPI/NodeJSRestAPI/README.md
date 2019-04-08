@@ -1,6 +1,3 @@
-# in order to run RestAPI
-node server.js
-
 # testing
 
 http://localhost:8080/RestAPI/Ogrenciler
