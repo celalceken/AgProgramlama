@@ -36,8 +36,8 @@ console.log('Listening ' + port);
 
 // all requests are routed here firstly, then directed to the related route
 router.use(function(req, res, next) {
-	console.log('Web Servisine istek geldi');
-	next();
+    console.log('Web Servisine istek geldi');
+    next();
 });
 
 
@@ -45,14 +45,14 @@ router.use(function(req, res, next) {
 //for GET http://localhost:8080/RestAPI requests
 
 router.get('/', function(req, res) {
-	res.json({ message: 'Rest API Ana Dizini ' });
+    res.json({ message: 'Rest API Ana Dizini ' });
 });
 
 //  http://localhost:8080/RestAPI/Ogrenciler   Request->Text->  ogrenciNo=98&adi=Bahar
 router.route('/Ogrenciler')
 
-	// insert operation
-	.post(function(req, res) {
+// insert operation
+    .post(function(req, res) {
 
         var kayit= {
             "ogrenciNo": req.body.ogrenciNo,
@@ -76,35 +76,35 @@ router.route('/Ogrenciler')
                 res.json({ message: 'Kayıt Eklenmiştir' });
             }
         });
-		
-	})
+
+    })
 
     // select  operation (all rows)
-	.get(function(req, res) {
+    .get(function(req, res) {
         collection.find({}, { limit : 50 }, function (err, docs){
             /*for(i=0;i<docs.length;i++)
                 console.log(docs[i]);
             });*/
-		    res.json(docs);
-		});
-	});
+            res.json(docs);
+        });
+    });
 
 //for  http://localhost:8080/RestAPI/Ogrenciler/ogrenciNo requests
 router.route('/Ogrenciler/:ogrenciNo')
 
-    // select  operation (ogrenciNo)
-	.get(function(req, res) {
+// select  operation (ogrenciNo)
+    .get(function(req, res) {
         console.log(req.params.ogrenciNo);
         collection.find({ogrenciNo:req.params.ogrenciNo},{ }, function (err, doc){
-			if (err)
-				res.send(err);
-			//console.log(doc);
-			res.json(doc);
-		});
-	})
+            if (err)
+                res.send(err);
+            //console.log(doc);
+            res.json(doc);
+        });
+    })
 
     // update  operation (ogrenciNo)   req.params.ogrenciNo  - > RestAPI/Ogrenciler/6
-	.put(function(req, res) {
+    .put(function(req, res) {
         console.log(req.body.adi + '' +req.body.soyadi+''+ req.params.ogrenciNo);
 
         //Bulduğu ilk kaydı günceller
@@ -146,13 +146,13 @@ router.route('/Ogrenciler/:ogrenciNo')
 
     //koşulu sağlayan tüm kayıtlar silinir
     // delete  operation (ogrenciNo)
-	.delete(function(req, res) {
+    .delete(function(req, res) {
         collection.remove({ogrenciNo:req.params.ogrenciNo}, function (err){
             if (err) throw err;
 
-        res.json({ message: 'Silme işlemi başarılı' });
+            res.json({ message: 'Silme işlemi başarılı' });
         })
 
-});
+    });
 
 
