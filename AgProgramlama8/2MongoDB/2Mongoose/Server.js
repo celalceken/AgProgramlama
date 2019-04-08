@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost/obs', function (err) {
 
     var kisi1 = new kisi({
         _id: new mongoose.Types.ObjectId(),
-        kullaniciAdi:'ayseyilmaz8',
+        kullaniciAdi:'ayseyilmaz12',
         adSoyad: {
             adi: 'Ayşe',
             soyadi: 'Yılmaz'
@@ -44,7 +44,7 @@ mongoose.connect('mongodb://localhost/obs', function (err) {
 
 
 //Arama İşlemleri için   find()-Hepsi, findOne()-ilkBulunan and findById()
-    kisi.find({ kullaniciAdi: 'ayseyilmaz7' //  'adSoyad.adi': 'Ayşe' //
+    kisi.find({ kullaniciAdi: 'ayseyilmaz11' //  'adSoyad.adi': 'Ayşe' //
     }).sort('-created')
         .limit(5)
         .exec(function(err, kisiler) {

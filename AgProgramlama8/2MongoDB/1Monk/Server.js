@@ -24,11 +24,8 @@ should.exists(collection);
 var kayit= {
     "ogrenciNo": "0017",
     "adi": "Meltem",
-    "soyadi": "Şahin",
-    "telefon": {
-        "ev": "12345678",
-        "is": "87654321"
-    }
+    "soyadi": "Şahin"
+
 }
 
 
@@ -47,14 +44,14 @@ collection.insert(kayit, function(err, doc){
 
 
 // Listeleme	    
-collection.find({"ogrenciNo":"0015"}, { limit : 100 }, function (err, docs){
+collection.find({"ogrenciNo":"0017"}, { limit : 100 }, function (err, docs){
     for(i=0;i<docs.length;i++)
         console.log(docs[i]);
 });
 
 
 // Silme
-collection.remove({ "ogrenciNo": "0015" }, function (err) {
+collection.remove({ "ogrenciNo": "0017" }, function (err) {
     if (err) throw err;
 });
 
